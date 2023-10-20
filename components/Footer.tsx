@@ -36,8 +36,6 @@ const Footer = () => {
             <h3 className='text-base font-bold mb-2'>Contact Us</h3>
             <span className='mb-2'>Phone : +216 22228464</span> <br />
             <span className='mb-2'>Email : Medboukthir7@gmail.com</span>
-            <p>Developed By <b>@Mohamed Boukthir</b></p>            
-            <p> &copy; {new Date().getFullYear()} Freeppy. All rights reserved.</p> 
           </div>
 
 
@@ -53,6 +51,14 @@ const Footer = () => {
               </div>
           </FooterColumn>
         </div>
+
+        <div>
+          <p className="footer__copyright">
+             &copy; {new Date().getFullYear()} Freeppy. All Rights Reserved. <br />
+             This Website Developed By <b> @Mohamed Boukthir</b>.
+          </p>
+        </div>
+
       </Container>
     </footer>
   )

@@ -1,6 +1,7 @@
 import Image from "next/image"
-import Container from "./Container"
 import Link from "next/link"
+
+import Container from "./Container"
 
 const Navbar = () => {
   return (
