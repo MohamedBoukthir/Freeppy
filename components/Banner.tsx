@@ -11,11 +11,10 @@ const Banner = () => {
             </div>
             <div className="w-1/3 relative aspect-video">
                 <Image
-                    src='/banner.jpg'
+                    src='/banner.png'
                     alt="Banner"
                     className="object-contain rounded-lg"
-                    width={700}
-                    height={420}
+                    fill
 />
             </div>
         </div>
