@@ -1,43 +1,43 @@
 export const products = [
     {
       id: "64a654593e91b8e73a351e9b",
-      name: "iphone 14",
-      description: "Short description",
-      price: 2999,
-      brand: "apple",
-      category: "Phone",
+      name: "Hype Cotton Blend T-shirt",
+      description: "Experience unparalleled comfort and style with the Nike Hype T-shirt. Made from a premium cotton blend, this shirt is designed to keep you cool and comfortable all day long. Whether you're hitting the gym or hanging out with friends, the Nike Hype T-shirt is the perfect choice.",
+      price: 49.99,
+      brand: "Nike",
+      category: "T-shirt",
       inStock: true,
       images: [
         {
           color: "White",
           colorCode: "#FFFFFF",
           image:
-            "https://firebasestorage.googleapis.com/v0/b/ecommerce-shop-cc542.appspot.com/o/products%2F1688622161445-iphone14-white.png?alt=media&token=fe2065e5-fdfe-4a6f-baa6-380b5fad90b8",
+            "/tshirt-white.png",
         },
         {
           color: "Gray",
           colorCode: "#808080",
           image:
-            "https://firebasestorage.googleapis.com/v0/b/ecommerce-shop-cc542.appspot.com/o/products%2F1688622165836-iphone14-gray.png?alt=media&token=58f684db-998e-43eb-aa06-efe3d6ccfad4",
+            "/tshirt-gray.png",
         },
       ],
       reviews: [],
     },
     {
       id: "64a4ebe300900d44bb50628a",
-      name: "Logitech MX Keys Advanced Wireless Illuminated Keyboard, Tactile Responsive Typing, Backlighting, Bluetooth, USB-C, Apple macOS, Microsoft Windows, Linux, iOS, Android, Metal Build (Black)",
+      name: "Classic Fit Denim Jeans",
       description:
-        "PERFECT STROKE KEYS - Spherically-dished keys match the shape of your fingertips, offering satisfying feedback with every tap\nCOMFORT AND STABILITY - Type with confidence on a keyboard crafted for comfort, stability, and precision",
+        "Elevate your casual style with these classic fit denim jeans. Crafted from high-quality denim, these jeans offer a comfortable fit and timeless design that pairs well with any outfit. Whether you're heading out for a casual day or a night on the town, these jeans are a versatile addition to your wardrobe.",
       price: 102.99,
-      brand: "logitech",
-      category: "Accesories",
+      brand: "Zara",
+      category: "Jeans",
       inStock: true,
       images: [
         {
           color: "Black",
           colorCode: "#000000",
           image:
-            "https://firebasestorage.googleapis.com/v0/b/ecommerce-shop-cc542.appspot.com/o/products%2F1688529886610-black-logitech-keyboard.jpg?alt=media&token=353aa276-1316-4e50-bc26-8e3828fe6cdd",
+            "/jean-black.png",
         },
       ],
       reviews: [
@@ -65,31 +65,31 @@ export const products = [
     },
     {
       id: "648437b38c44d52b9542e340",
-      name: "Apple iPhone 12, 64GB",
+      name: "Elegant Floral Maxi Dress",
       description:
-        'The product is refurbished, fully functional, and in excellent condition. Backed by the 90-day E~Shop Renewed Guarantee.\n- This pre-owned product has been professionally inspected, tested and cleaned by Amazon qualified vendors. It is not certified by Apple.\n- This product is in "Excellent condition". The screen and body show no signs of cosmetic damage visible from 12 inches away.\n- This product will have a battery that exceeds 80% capacity relative to new.\n- Accessories may not be original, but will be compatible and fully functional. Product may come in generic box.\n- Product will come with a SIM removal tool, a charger and a charging cable. Headphone and SIM card are not included.\n- This product is eligible for a replacement or refund within 90-day of receipt if it does not work as expected.\n- Refurbished phones are not guaranteed to be waterproof.',
-      price: 40,
-      brand: "Apple",
-      category: "Phone",
+        'Make a statement with this elegant floral maxi dress. The intricate floral pattern and flowing silhouette create a stunning look for any special occasion. The soft, lightweight fabric ensures comfort and ease of movement, while the v-neckline and adjustable straps add a touch of sophistication. Whether it s a wedding or a garden party, this dress is sure to turn heads.',
+      price: 98.99,
+      brand: "Chic Couture",
+      category: "Dresses",
       inStock: true,
       images: [
         {
           color: "Black",
           colorCode: "#000000",
           image:
-            "https://firebasestorage.googleapis.com/v0/b/ecommerce-shop-cc542.appspot.com/o/products%2F1686386605041-iphone12-black.jpg?alt=media&token=32abf316-ddf6-4870-9e1e-a7c884b750d6",
+            "/dresse-black.png",
         },
         {
           color: "Blue",
           colorCode: " #0000FF",
           image:
-            "https://firebasestorage.googleapis.com/v0/b/ecommerce-shop-cc542.appspot.com/o/products%2F1686386607274-iphone12-blue.jpg?alt=media&token=e83a9b13-86b6-4518-9f1e-8ddef12ba9a2",
+            "/dresse-blue.png",
         },
         {
           color: "Red",
           colorCode: "#FF0000",
           image:
-            "https://firebasestorage.googleapis.com/v0/b/ecommerce-shop-cc542.appspot.com/o/products%2F1686386608652-iphone12-red.jpg?alt=media&token=603a9e86-5b8c-4f8d-b61c-c1c77e60e954",
+            "/dresse-red.png",
         },
       ],
       reviews: [
@@ -138,45 +138,45 @@ export const products = [
     },
     {
       id: "64a4e9e77e7299078334019f",
-      name: "Logitech MX Master 2S Wireless Mouse – Use on Any Surface, Hyper-Fast Scrolling, Ergonomic Shape, Rechargeable, Control Upto 3 Apple Mac and Windows Computers, Graphite",
+      name: "North Face Arctic Down Parka",
       description:
-        "Cross computer control: Game changing capacity to navigate seamlessly on 3 computers, and copy paste text, images, and files from 1 to the other using Logitech flow\nDual connectivity: Use with upto 3 Windows or Mac computers via included Unifying receiver or Bluetooth Smart wireless technology. Gesture button- Yes",
+        "Stay warm and stylish with the North Face Arctic Down Parka. This premium winter jacket features 550-fill down insulation for superior warmth in cold conditions. The waterproof and breathable DryVent shell keeps you dry in snowy and wet weather. With a faux fur-trimmed hood, multiple pockets, and a sleek design, this parka is perfect for urban adventures and outdoor activities.",
       price: 70,
-      brand: "logitech",
-      category: "Accesories",
-      inStock: true,
-      images: [
-        {
-          color: "Graphite",
-          colorCode: " #383838",
-          image:
-            "https://firebasestorage.googleapis.com/v0/b/ecommerce-shop-cc542.appspot.com/o/products%2F1688529379028-logitech-graphite-mouse.jpg?alt=media&token=f9dfba29-832f-4c58-88c6-a7a0ae6b22bf",
-        },
-      ],
-      reviews: [],
-    },
-    {
-      id: "649d775128b6744f0f497040",
-      name: 'Smart Watch(Answer/Make Call), 1.85" Smartwatch for Men Women IP68 Waterproof, 100+ Sport Modes, Fitness Activity Tracker, Heart Rate Sleep Monitor, Pedometer, Smart Watches for Android iOS, 2023',
-      description:
-        'Bluetooth Call and Message Reminder: The smart watch is equipped with HD speaker, after connecting to your phone via Bluetooth, you can directly use the smartwatches to answer or make calls, read messages, store contacts, view call history. The smartwatch can set up more message notifications in "GloryFit" APP. You will never miss any calls and messages during meetings, workout and riding.',
-      price: 50,
-      brand: "Nerunsa",
-      category: "Watch",
+      brand: "The North Face",
+      category: "Jackets",
       inStock: true,
       images: [
         {
           color: "Black",
           colorCode: "#000000",
           image:
-            "https://firebasestorage.googleapis.com/v0/b/ecommerce-shop-cc542.appspot.com/o/products%2F1688041293609-watch-black.jpg?alt=media&token=270f918c-d9f5-41a2-ad32-45d5f3c66bf0",
+            "/jacket-black.png",
+        },
+      ],
+      reviews: [],
+    },
+    {
+      id: "649d775128b6744f0f497040",
+      name: 'Nike Air Force 1 Low',
+      description:
+        'Step up your sneaker game with the iconic Nike Air Force 1 Low. Featuring a timeless design and unmatched comfort, these sneakers are a must-have for any sneakerhead. The premium leather upper provides durability and a classic look, while the Air-Sole unit in the heel offers responsive cushioning. Whether you re on the court or hitting the streets, these kicks will keep you looking fresh.',
+      price: 99.99,
+      brand: "Nike",
+      category: "Shoes",
+      inStock: true,
+      images: [{
+          color: "White",
+          colorCode: "#FFFFFF",
+          image:
+            "/shoes-white.png",
         },
         {
-          color: "Silver",
-          colorCode: "#C0C0C0",
+          color: "Black",
+          colorCode: "#000000",
           image:
-            "https://firebasestorage.googleapis.com/v0/b/ecommerce-shop-cc542.appspot.com/o/products%2F1688041295389-watch-silver.jpg?alt=media&token=7341e7f0-5c29-4f91-a7e3-57e50faafb74",
+            "/shoes-black.png",
         },
+        
       ],
       reviews: [],
     },

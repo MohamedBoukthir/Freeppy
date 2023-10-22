@@ -13,7 +13,7 @@ const Banner = () => {
                 <Image
                     src='/banner.png'
                     alt="Banner"
-                    className="object-contain rounded-lg"
+                    className="w-full h-full object-contain"
                     fill
 />
             </div>
