@@ -1,6 +1,7 @@
 import Banner from "@/components/Banner";
 import Container from "@/components/Container";
 import ProductCard from "@/components/Products/ProductCard";
+
 import { products } from "@/utils/products";
 
 import { truncateText } from "@/utils/truncateTxt";

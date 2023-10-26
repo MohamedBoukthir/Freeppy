@@ -6,6 +6,7 @@ import Container from './Container';
 import {MdFacebook} from 'react-icons/md'
 import {AiFillInstagram} from 'react-icons/ai'
 
+
 const Footer = () => {
   return (
     <footer className='bg-primaryColor text-slate-100 text-sm mt-16'>
