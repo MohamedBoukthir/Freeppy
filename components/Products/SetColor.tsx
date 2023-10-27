@@ -9,11 +9,7 @@ interface SetColorProps {
     handleColorSelect: (value: selectedImgType) => void;
 }
 
-const SetColor: React.FC<SetColorProps> = ({
-    images,
-    cartProduct,
-    handleColorSelect,
-}) => {
+const SetColor: React.FC<SetColorProps> = ({ images, cartProduct, handleColorSelect,}) => {
   return (
     <div >
       <div className="flex gap-4 items-center">

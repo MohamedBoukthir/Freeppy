@@ -4,6 +4,8 @@ import { Rating } from "@mui/material";
 import { useCallback, useState } from "react";
 
 import SetColor from "@/components/Products/setColor";
+import SetQuantity from "@/components/Products/SetQuantity";
+import Button from "@/components/Button";
 
 // product details props
 interface ProductDetailsProps {
@@ -64,6 +66,31 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({product}) => {
         [cartProduct.selectedImg]
     );
 
+    // quantity increase Func
+    const handleQtyIncrease = useCallback(() => {
+
+        if(cartProduct.quantity === 99) {
+            return;
+        }
+
+        setCartProduct((prev) => {
+            return { ...prev, quantity: prev.quantity + 1}
+        })
+    }, [cartProduct]);
+
+    // quantity decrease Func
+    const handleQtyDecrease = useCallback(() => {
+
+        if(cartProduct.quantity === 1) {
+            return;
+        }
+
+        setCartProduct((prev) => {
+            return {...prev, quantity: prev.quantity - 1 }
+        })
+    }, [cartProduct]);
+
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
         <div>images</div>
@@ -95,7 +122,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({product}) => {
                 {product.brand}
             </div>
         { /* is In Strock ? */ }
-            <div className={product.inStock ? 'text-teal-400' : 'text-rose-400' }>
+            <div className={product.inStock ? 'text-teal-400 font-semibold' : 'text-rose-400 font-semibold' }>
                 {product.inStock ? 'In Stock' : 'Out Of Stock'}
             </div>
             <HorizontalLine/>
@@ -106,9 +133,19 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({product}) => {
                 handleColorSelect={handleColorSelect}
             />
             <HorizontalLine/>
-            <div>qnt</div>
+        { /* Set Quantity */ }
+            <SetQuantity
+                cartProduct={cartProduct}
+                handleQtyincrease={handleQtyIncrease}
+                handleQtyDecrease={handleQtyDecrease}
+            />
             <HorizontalLine/>
-            <div>add cart</div>
+            <div className="max-w-[300px]">
+                <Button
+                    label="Add To Cart"
+                    onClick={() => {}}
+                />
+            </div>
         </div>
     </div>
   )
