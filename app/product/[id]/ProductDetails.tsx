@@ -7,6 +7,7 @@ import SetColor from "@/components/Products/SetColor";
 import SetQuantity from "@/components/Products/SetQuantity";
 import ProductImg from "@/components/Products/ProductImg";
 import Button from "@/components/Button";
+import { useCart } from "@/hooks/useCart";
 
 // product details props
 interface ProductDetailsProps {
