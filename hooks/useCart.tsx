@@ -1,5 +1,7 @@
 import { CartProductType } from "@/app/product/[id]/ProductDetails";
-import { createContext, useCallback, useContext, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useState } from "react";
+
+import {toast} from 'react-hot-toast';
 
 interface CartContextType {
   cartTotalQty: number;
@@ -14,9 +16,16 @@ interface Props {
 }
 
 export const CartContextProvider = (props: Props) => {
-    
+
     const [cartTotalQty, SetCartTotalQty] = useState(0)
     const [cartProducts, SetCartProducts] = useState<CartProductType[] | null>(null)
+
+    useEffect(() => {
+        const cartItems: any = localStorage.getItem('FreppyCart');
+        const productInCart: CartProductType[] | null = JSON.parse(cartItems);
+
+        SetCartProducts(productInCart);
+    }, [])
 
     const handleAddProductToCart = useCallback((product: CartProductType) => {
         SetCartProducts((prev) => {
@@ -28,6 +37,8 @@ export const CartContextProvider = (props: Props) => {
                 updatedCart = [product];
             }
 
+            toast.success('Product Added To Cart')
+            localStorage.setItem("FreppyCart", JSON.stringify(updatedCart));
             return updatedCart;
         })
     }, []);
