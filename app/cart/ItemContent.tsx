@@ -15,7 +15,7 @@ interface ItemContentProps  {
 
 const ItemContent: React.FC<ItemContentProps> = ({item}) => {
 
-    const {handleRemoveProductFromCart} = useCart();
+    const {handleRemoveProductFromCart, handleCartQtyIncrease, handleCartQtyDecrease} = useCart();
 
   return (
     <div className="grid grid-cols-5 text-xs md:text-sm gap-4 border-t-[1.5px] border-slate-200 py-4 items-center">
@@ -32,7 +32,7 @@ const ItemContent: React.FC<ItemContentProps> = ({item}) => {
             </Link>
             <div className="flex flex-col justify-between">
                 <Link href={`/product/${item.id}`}>
-                    {truncateText(item.name)}
+                    {truncateText(item.name)}</Link>
                     <div className="text-slate-500 font-light"> 
                         {item.selectedImg.color} 
                     </div>
@@ -43,8 +43,7 @@ const ItemContent: React.FC<ItemContentProps> = ({item}) => {
                             <AiOutlineDelete size={20}/>
                             Remove                      
                         </button>
-                    </div>
-                </Link>
+                    </div>               
             </div>
         </div>
         <div className="justify-self-center">
@@ -54,8 +53,8 @@ const ItemContent: React.FC<ItemContentProps> = ({item}) => {
             <SetQuantity 
                 cartCounter={true}
                 cartProduct={item}
-                handleQtyincrease={() => {}}
-                handleQtyDecrease={() => {}}
+                handleQtyincrease={() => {handleCartQtyIncrease(item)}}
+                handleQtyDecrease={() => {handleCartQtyDecrease(item)}}
             />
         </div>
         <div className="justify-self-end font-semibold">
