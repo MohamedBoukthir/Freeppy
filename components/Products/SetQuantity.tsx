@@ -17,14 +17,14 @@ const SetQuantity: React.FC<SetQuantityProps> = ({cartCounter, cartProduct, hand
         <div className="flex gap-4 items-center text-base">
             <button 
                 onClick={handleQtyDecrease}
-                className="border-[1.2px] border-slate-300 px-2 rounded-full"
+                className="border-[1.2px] border-slate-300 px-2 rounded"
                 >
                     -
             </button>
             <div>{cartProduct.quantity}</div>
             <button 
                 onClick={handleQtyincrease}
-                className="border-[1.2px] border-slate-300 px-2 rounded-full"
+                className="border-[1.2px] border-slate-300 px-2 rounded "
                 >
                     +
             </button>
