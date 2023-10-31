@@ -2,6 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 
 import Container from "./Container"
+import CartCount from "./CartCount"
 
 const Navbar = () => {
   return (
@@ -19,7 +20,7 @@ const Navbar = () => {
             </Link>
             <div className="hidden md:block">search</div>
             <div className="flex items-center gap-8 md:gap-12">
-              <div>cart</div>
+              <CartCount/>
               <div>user</div>
             </div>
           </div>

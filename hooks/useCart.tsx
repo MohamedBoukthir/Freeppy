@@ -3,15 +3,16 @@ import { createContext, use, useCallback, useContext, useEffect, useState } from
 
 import {toast} from 'react-hot-toast';
 
-interface CartContextType {
+type CartContextType = {
   cartTotalQty: number;
+  cartTotalAmount: number;
   cartProducts: CartProductType[] | null;
   handleAddProductToCart: (product: CartProductType) => void;
   handleRemoveProductFromCart: (product: CartProductType) => void;
   handleCartQtyIncrease: (product: CartProductType) => void;
   handleCartQtyDecrease: (product: CartProductType) => void;
   handleClearCart: () => void;
-}
+};
 
 export const CartContext = createContext<CartContextType | null>(null);
 
@@ -148,6 +149,7 @@ export const CartContextProvider = (props: Props) => {
 
     const value = {
         cartTotalQty,
+        cartTotalAmount,
         cartProducts,
         handleAddProductToCart,
         handleRemoveProductFromCart,
