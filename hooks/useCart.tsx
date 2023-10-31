@@ -1,5 +1,5 @@
 import { CartProductType } from "@/app/product/[id]/ProductDetails";
-import { createContext, useCallback, useContext, useEffect, useState } from "react";
+import { createContext, use, useCallback, useContext, useEffect, useState } from "react";
 
 import {toast} from 'react-hot-toast';
 
@@ -10,6 +10,7 @@ interface CartContextType {
   handleRemoveProductFromCart: (product: CartProductType) => void;
   handleCartQtyIncrease: (product: CartProductType) => void;
   handleCartQtyDecrease: (product: CartProductType) => void;
+  handleClearCart: () => void;
 }
 
 export const CartContext = createContext<CartContextType | null>(null);
@@ -20,8 +21,10 @@ interface Props {
 
 export const CartContextProvider = (props: Props) => {
 
-    const [cartTotalQty, SetCartTotalQty] = useState(0)
-    const [cartProducts, SetCartProducts] = useState<CartProductType[] | null>(null)
+
+    const [cartTotalQty, SetCartTotalQty] = useState(0);
+    const [cartTotalAmount, SetCartTotalAmount] = useState(0);
+    const [cartProducts, SetCartProducts] = useState<CartProductType[] | null>(null);
 
     useEffect(() => {
         const cartItems: any = localStorage.getItem('FreppyCart');
@@ -29,6 +32,34 @@ export const CartContextProvider = (props: Props) => {
 
         SetCartProducts(productInCart);
     }, [])
+
+    console.log('qty' , cartTotalQty)
+    console.log('total' , cartTotalAmount)
+
+    useEffect(()=> {
+          const getTotal = () => {
+
+            if(cartProducts){
+                const {total, qty}  =  cartProducts?.reduce((acc, item) => {
+                    const itemTotal = item.price * item.quantity
+    
+                    acc.total += itemTotal
+                    acc.qty += item.quantity
+    
+                    return acc
+                }, {
+                    total: 0,
+                    qty: 0
+                }
+              );
+              SetCartTotalQty(qty)
+              SetCartTotalAmount(total)
+            }  
+
+          }
+          getTotal()
+    }, [cartProducts])
+
 
 // add to cart func
     const handleAddProductToCart = useCallback((product: CartProductType) => {
@@ -85,7 +116,6 @@ export const CartContextProvider = (props: Props) => {
     }, [cartProducts])
 
 // decrease qty from cart
-    // increase qnt from cart
     const handleCartQtyDecrease = useCallback((product: CartProductType) => {
         let updatedCart;
 
@@ -109,13 +139,21 @@ export const CartContextProvider = (props: Props) => {
         }
     }, [cartProducts])
 
+// clear cart func
+    const handleClearCart = useCallback(() => {
+        SetCartProducts(null)
+        SetCartTotalQty(0)
+        localStorage.setItem('FreppyCart', JSON.stringify(null))
+    }, [cartProducts])
+
     const value = {
         cartTotalQty,
         cartProducts,
         handleAddProductToCart,
         handleRemoveProductFromCart,
         handleCartQtyIncrease,
-        handleCartQtyDecrease
+        handleCartQtyDecrease,
+        handleClearCart
 
     }
     return <CartContext.Provider value={value} {...props} />

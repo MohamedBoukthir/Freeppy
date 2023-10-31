@@ -8,7 +8,7 @@ import { MdArrowBack } from "react-icons/md";
 import ItemContent from "./ItemContent";
 
 const CartClient = () => {
-  const { cartProducts } = useCart();
+  const { cartProducts, handleClearCart } = useCart();
 
   // show this when cart is empty
   if (!cartProducts || cartProducts.length === 0) {
@@ -46,7 +46,7 @@ const CartClient = () => {
       {/* clear cart button */}
       <div className="border-t-[1.5px] border-slate-200 py-4 flex justify-between gap-4">
         <div className="w-[190px]">
-          <Button label="Clear Cart" onClick={() => {}} small outline />
+          <Button label="Clear Cart" onClick={() => {handleClearCart()}} small outline />
         </div>
         {/* checkout /  */}
         <div className="text-sm flex flex-col gap-1 items-start">
