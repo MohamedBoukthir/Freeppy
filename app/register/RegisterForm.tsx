@@ -1,12 +1,17 @@
 "use client";
 
 import { useState } from "react";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import { AiOutlineGoogle } from "react-icons/ai";
+import { signIn } from "next-auth/react";
+
+import Link from "next/link";
 import Button from "@/components/Button";
 import Heading from "@/components/Heading";
 import Input from "@/components/input/Input";
-import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import Link from "next/link";
-import { AiOutlineGoogle } from "react-icons/ai";
+import axios from "axios";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const RegisterForm = () => {
   const [isLoading, SetIsLoading] = useState(false);
@@ -22,10 +27,38 @@ const RegisterForm = () => {
     },
   });
 
+  // use router
+  const router = useRouter();
+
   // OnSubmit Func
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     SetIsLoading(true);
-    console.log(data);
+
+    axios
+      .post("/api/register", data)
+      .then(() => {
+        toast.success("Account Created");
+
+        signIn("credentials", {
+          email: data.email,
+          password: data.password,
+          redirect: false,
+        }).then((callback) => {
+          if (callback?.ok) {
+            router.push("/cart");
+            router.refresh;
+            toast.success("LoggedIn");
+          }
+
+          if (callback?.error) {
+            toast.error(callback.error);
+          }
+        });
+      })
+      .catch(() => toast.error("Somthing Went Wrong"))
+      .finally(() => {
+        SetIsLoading(false);
+      });
   };
 
   return (

@@ -1,5 +1,5 @@
 import { CartProductType } from "@/app/product/[id]/ProductDetails";
-import { createContext, use, useCallback, useContext, useEffect, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useState } from "react";
 
 import {toast} from 'react-hot-toast';
 

@@ -37,16 +37,16 @@ export default NextAuth({
                 }
             })
 
-            if(!user || user?.hashedPassword){
+            if(!user || !user?.hashedPassword){
                 throw new Error('INVALID EMAIL OR PASSWORD')
             }
 
-            const isCorectPassword = await bcrypt.compare(
+            const isCorrectPassword = await bcrypt.compare(
                  credentials.password,
                  user.hashedPassword
             )
 
-            if(!isCorectPassword){
+            if(!isCorrectPassword){
                 throw new Error('INVALID EMAIL OR PASSWORD')
             }
 
