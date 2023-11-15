@@ -3,7 +3,7 @@ import Image from "next/image"
 import {LuUser2} from 'react-icons/lu'
 
 interface AvatarProps {
-    src: string | null | undefined
+    src: string | null | undefined;
 }
 
 const Avatar: React.FC<AvatarProps> = ({src}) => {
