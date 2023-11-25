@@ -8,7 +8,6 @@ import Footer from '@/components/Footer'
 import CartProvider from '@/providers/CartProvider'
 
 import { Toaster } from 'react-hot-toast'
-import { getCurrentUser } from '@/actions/getCurrentUser'
 
 const poppins  = Poppins({ subsets: ['latin'], weight:['400', '700'] })
 
@@ -22,9 +21,6 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-
-const currentUser = await getCurrentUser()
-console.log('user <<<', currentUser)
 
   return (
     <html lang="en">
