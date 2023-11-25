@@ -8,6 +8,7 @@ import Footer from '@/components/Footer'
 import CartProvider from '@/providers/CartProvider'
 
 import { Toaster } from 'react-hot-toast'
+import { getCurrentUser } from '@/actions/getCurrentUser'
 
 const poppins  = Poppins({ subsets: ['latin'], weight:['400', '700'] })
 
@@ -16,11 +17,15 @@ export const metadata: Metadata = {
   description: 'Explore curated, sustainable fashion at Freeppy. Discover unique pre-loved pieces, blending timeless style with eco-conscious choices. Shop now for affordable, quality clothing.',
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+
+const currentUser = await getCurrentUser()
+console.log('user <<<', currentUser)
+
   return (
     <html lang="en">
       <body className={`${poppins.className} text-slate-700`}>
