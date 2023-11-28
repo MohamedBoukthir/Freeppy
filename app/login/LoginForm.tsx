@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "@/components/Button";
 import Heading from "@/components/Heading";
 import Input from "@/components/input/Input";
@@ -10,8 +10,13 @@ import { AiOutlineGoogle } from "react-icons/ai";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import { SafeUser } from "@/types/type";
 
-const LoginForm = () => {
+interface LoginFormProps {
+  currentUser: SafeUser | null;
+}
+
+const LoginForm: React.FC<LoginFormProps> = ({currentUser}) => {
   const [isLoading, SetIsLoading] = useState(false);
   const {
     register,
@@ -24,8 +29,15 @@ const LoginForm = () => {
     },
   });
 
-  // useRouter Hook
   const router = useRouter();
+
+  // useefffect Hook
+  useEffect(() => {
+    if (currentUser) {
+      router.push('/cart');
+      router.refresh();
+    }
+  }, [])
 
   // OnSubmit Func
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
@@ -49,6 +61,11 @@ const LoginForm = () => {
       }
     });
   };
+
+  // check if we have cuurent user
+    if(currentUser) {
+      return <p className="text-center">Logged in.</p>
+    }
 
   return (
     <>
