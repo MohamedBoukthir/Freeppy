@@ -14,12 +14,11 @@ import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { SafeUser } from "@/types/type";
 
-
 interface RegisterFormProps {
   currentUser: SafeUser | null;
 }
 
-const RegisterForm:React.FC<RegisterFormProps> = ({currentUser}) => {
+const RegisterForm: React.FC<RegisterFormProps> = ({ currentUser }) => {
   const [isLoading, SetIsLoading] = useState(false);
   const {
     register,
@@ -33,16 +32,15 @@ const RegisterForm:React.FC<RegisterFormProps> = ({currentUser}) => {
     },
   });
 
-
   const router = useRouter();
 
   // useefffect Hook
   useEffect(() => {
     if (currentUser) {
-      router.push('/cart');
+      router.push("/cart");
       router.refresh();
     }
-  }, [])
+  }, []);
 
   // OnSubmit Func
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
@@ -76,8 +74,8 @@ const RegisterForm:React.FC<RegisterFormProps> = ({currentUser}) => {
   };
 
   // check if we have cuurent user
-  if(currentUser) {
-    return <p className="text-center">Logged in.</p>
+  if (currentUser) {
+    return <p className="text-center">Logged in.</p>;
   }
 
   return (
@@ -86,9 +84,11 @@ const RegisterForm:React.FC<RegisterFormProps> = ({currentUser}) => {
       {/* SignUp with google button */}
       <Button
         outline
-        label="Sign Up With Google"
+        label="Continue With Google"
         icon={AiOutlineGoogle}
-        onClick={() => {}}
+        onClick={() => {
+          signIn("google");
+        }}
       />
       <hr className="bg-slate-700 w-full h-px" />
       <Input

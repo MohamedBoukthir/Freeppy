@@ -16,7 +16,7 @@ interface LoginFormProps {
   currentUser: SafeUser | null;
 }
 
-const LoginForm: React.FC<LoginFormProps> = ({currentUser}) => {
+const LoginForm: React.FC<LoginFormProps> = ({ currentUser }) => {
   const [isLoading, SetIsLoading] = useState(false);
   const {
     register,
@@ -34,10 +34,10 @@ const LoginForm: React.FC<LoginFormProps> = ({currentUser}) => {
   // useefffect Hook
   useEffect(() => {
     if (currentUser) {
-      router.push('/cart');
+      router.push("/cart");
       router.refresh();
     }
-  }, [])
+  }, []);
 
   // OnSubmit Func
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
@@ -63,20 +63,24 @@ const LoginForm: React.FC<LoginFormProps> = ({currentUser}) => {
   };
 
   // check if we have cuurent user
-    if(currentUser) {
-      return <p className="text-center">Logged in.</p>
-    }
+  if (currentUser) {
+    return <p className="text-center">Logged in.</p>;
+  }
 
   return (
     <>
       <Heading title="Log In For Freeppy" />
+
       {/* SignUp with google button */}
       <Button
         outline
         label="Continue With Google"
         icon={AiOutlineGoogle}
-        onClick={() => {}}
+        onClick={() => {
+          signIn("google");
+        }}
       />
+
       <hr className="bg-slate-700 w-full h-px" />
       <Input
         id="email"
