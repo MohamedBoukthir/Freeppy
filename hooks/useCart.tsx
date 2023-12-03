@@ -1,5 +1,6 @@
 import { CartProductType } from "@/app/product/[id]/ProductDetails";
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
+import { set } from "react-hook-form";
 
 import {toast} from 'react-hot-toast';
 
@@ -12,6 +13,8 @@ type CartContextType = {
   handleCartQtyIncrease: (product: CartProductType) => void;
   handleCartQtyDecrease: (product: CartProductType) => void;
   handleClearCart: () => void;
+  paymentIntent: string | null;
+  handlePaymentIntent: (val: string | null) => void;
 };
 
 export const CartContext = createContext<CartContextType | null>(null);
@@ -27,15 +30,18 @@ export const CartContextProvider = (props: Props) => {
     const [cartTotalAmount, SetCartTotalAmount] = useState(0);
     const [cartProducts, SetCartProducts] = useState<CartProductType[] | null>(null);
 
+    const [paymentIntent, setPaymentIntent] = useState<string | null>(null)
+    
+
     useEffect(() => {
         const cartItems: any = localStorage.getItem('FreppyCart');
         const productInCart: CartProductType[] | null = JSON.parse(cartItems);
+        const freepyPaymentIntent: any = localStorage.getItem('FreppyPaymentIntent')
+        const paymentIntent: string | null = JSON.parse(freepyPaymentIntent)
 
         SetCartProducts(productInCart);
+        setPaymentIntent(paymentIntent);
     }, [])
-
-    console.log('qty' , cartTotalQty)
-    console.log('total' , cartTotalAmount)
 
     useEffect(()=> {
           const getTotal = () => {
@@ -147,6 +153,14 @@ export const CartContextProvider = (props: Props) => {
         localStorage.setItem('FreppyCart', JSON.stringify(null))
     }, [cartProducts])
 
+// payment intent func
+    const handlePaymentIntent = useCallback(
+        (val: string | null) => {
+            setPaymentIntent(val)
+            localStorage.setItem('FreppyPaymentIntent', JSON.stringify(val))
+        },
+        [paymentIntent]);
+
     const value = {
         cartTotalQty,
         cartTotalAmount,
@@ -155,11 +169,11 @@ export const CartContextProvider = (props: Props) => {
         handleRemoveProductFromCart,
         handleCartQtyIncrease,
         handleCartQtyDecrease,
-        handleClearCart
-
+        handleClearCart,
+        paymentIntent,
+        handlePaymentIntent,
     }
     return <CartContext.Provider value={value} {...props} />
-
 }
 
 export const useCart = () => {
